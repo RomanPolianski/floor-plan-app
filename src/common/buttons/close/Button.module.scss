@@ -1,0 +1,14 @@
+$purple: rgb(117, 0, 92);
+
+.button {
+  background: $purple;
+  border: none;
+  padding: 5px;
+  color: white;
+  width: 80px;
+  height: 34px;
+  border-radius: 5px;
+  &:active {
+    background-color: rgb(54, 0, 43);
+  }
+}
