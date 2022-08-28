@@ -69,7 +69,7 @@ export const People: FC = (): JSX.Element => {
   ));
   return (
     <div>
-      <h1 className={styles.header}>People.</h1>
+      <h2 className={styles.header}>People.</h2>
       <Table
         headers={['', 'Name', 'Midname', 'Surname']}
         data={peopleRow}
