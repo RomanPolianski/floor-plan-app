@@ -14,3 +14,10 @@ body {
 .contentRight {
   flex-grow: 3;
 }
+
+@media (max-width: 800px) {
+  .container {
+    display: block;
+    margin: 10% 0;
+  }
+}

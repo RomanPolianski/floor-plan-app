@@ -15,7 +15,7 @@ const PeopleRow: FC<PeopleRowProps> = ({
 }): JSX.Element => {
   return (
     <tr className={styles.table__row}>
-      <td data-label="Avatar" className={styles.table__data}>
+      <td data-label="" className={styles.table__data}>
         <img alt="avatar" src={imgRef} className={styles.table__avatar} />
       </td>
       <td data-label="Name" className={styles.table__data}>

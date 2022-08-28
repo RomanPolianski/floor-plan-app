@@ -1,5 +1,6 @@
 /* eslint-disable react/require-default-props */
 import { FC } from 'react';
+import Preloader from '../preloader/Preloader';
 import styles from './Table.module.scss';
 
 interface TableProps {
@@ -26,7 +27,11 @@ export const Table: FC<TableProps> = ({
           })}
         </tr>
       </thead>
-      {showBody && <tbody className={styles.table__body}>{data}</tbody>}
+      {showBody ? (
+        <tbody className={styles.table__body}>{data}</tbody>
+      ) : (
+        <Preloader />
+      )}
     </table>
   );
 };

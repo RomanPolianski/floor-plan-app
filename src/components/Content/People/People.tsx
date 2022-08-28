@@ -16,6 +16,8 @@ export const People: FC = (): JSX.Element => {
   const [people, setPeople] = useState<PeopleType[]>([]);
   const [peopleTotal, setPeopleTotal] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [isFetching, setIsFetching] = useState<boolean>(false);
+
   const [peoplePerPage] = useState<number>(3);
   const offset = currentPage * 3 - 3;
 
@@ -38,13 +40,23 @@ export const People: FC = (): JSX.Element => {
 
   useEffect(() => {
     async function fetchPeople() {
+      setIsFetching(true);
       const resp = await instance.get(
         `/contacts/?page=${currentPage}&limit=${peoplePerPage}`
       );
       setPeople(resp.data);
+      setIsFetching(false);
     }
     fetchPeople();
   }, [offset]);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }, [currentPage]);
 
   const peopleRow = people.map((p) => (
     <PeopleRow
@@ -52,15 +64,16 @@ export const People: FC = (): JSX.Element => {
       midname={p.midname}
       surname={p.surname}
       imgRef={p.imgRef}
+      key={p.imgRef}
     />
   ));
   return (
     <div>
-      <h1>People.</h1>
+      <h1 className={styles.header}>People.</h1>
       <Table
         headers={['', 'Name', 'Midname', 'Surname']}
         data={peopleRow}
-        showBody
+        showBody={!isFetching}
       />
       <div className={styles.table__buttonContainer}>
         <Pagination

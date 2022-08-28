@@ -50,6 +50,7 @@ $purple: rgba(117, 0, 92, 0.1);
 @media (max-width: 800px) {
   .table {
     margin-top: 10%;
+    height: fit-content;
     &__header {
       display: none;
     }

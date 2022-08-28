@@ -4,7 +4,7 @@ import { FC, useState } from 'react';
 import ReactLeafletGoogleLayer from 'react-leaflet-google-layer';
 import { mapData } from '../../../../data/floor';
 import 'leaflet/dist/leaflet.css';
-import Button from '../../../common/buttons/close/Button';
+import Button from '../../../common/buttons/TextButton/Button';
 import styles from './Map.module.scss';
 
 const Map: FC = (): JSX.Element => {
@@ -19,7 +19,7 @@ const Map: FC = (): JSX.Element => {
   return (
     <div>
       <MapContainer
-        style={{ height: '80vh' }}
+        style={{ height: '82vh' }}
         zoom={20}
         center={[53.91713, 27.63483]}
       >
