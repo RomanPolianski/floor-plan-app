@@ -1,14 +1,16 @@
+import { FC } from 'react';
 import Map from './components/Content/Map/Map';
 import Header from './components/Header/Header';
 import styles from './App.module.scss';
+import { People } from './components/Content/People/People';
 
-function App() {
+const App: FC = (): JSX.Element => {
   return (
     <>
       <Header />
       <div className={styles.container}>
         <div className={styles.contentLeft}>
-          <h1>People</h1>
+          <People />
         </div>
         <div className={styles.contentRight}>
           <Map />
@@ -16,6 +18,6 @@ function App() {
       </div>
     </>
   );
-}
+};
 
 export default App;
